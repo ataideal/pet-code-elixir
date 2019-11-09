@@ -19,7 +19,7 @@ defmodule RickMortyPet.RickMorty.Character do
     character
     |> cast(attrs, [:name, :status, :species, :type, :gender])
     |> cast_attachments(attrs, [:picture], allow_paths: true)
-    |> validate_required([:name, :status, :species, :gender, :picture])
+    |> validate_required([:name, :status, :species, :gender])
   end
 
   def picture_url(character) do

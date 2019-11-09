@@ -18,7 +18,7 @@ defmodule RickMortyPetWeb.CharacterControllerTest do
     status: "some updated status",
     type: "some updated type"
   }
-  @invalid_attrs %{gender: nil, name: nil, species: nil, status: nil, type: nil}
+  @invalid_attrs %{gender: nil, name: nil, species: nil, status: nil}
 
   def fixture(:character) do
     {:ok, character} = RickMorty.create_character(@create_attrs)
@@ -32,14 +32,14 @@ defmodule RickMortyPetWeb.CharacterControllerTest do
   describe "index" do
     test "lists all characters", %{conn: conn} do
       conn = get(conn, Routes.character_path(conn, :index))
-      assert json_response(conn, 200)["data"] == []
+      assert json_response(conn, 200) == []
     end
   end
 
   describe "create character" do
     test "renders character when data is valid", %{conn: conn} do
       conn = post(conn, Routes.character_path(conn, :create), character: @create_attrs)
-      assert %{"id" => id} = json_response(conn, 201)["data"]
+      assert %{"id" => id} = json_response(conn, 201)
 
       conn = get(conn, Routes.character_path(conn, :show, id))
 
@@ -50,7 +50,7 @@ defmodule RickMortyPetWeb.CharacterControllerTest do
                "species" => "some species",
                "status" => "some status",
                "type" => "some type"
-             } = json_response(conn, 200)["data"]
+             } = json_response(conn, 200)
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -64,7 +64,7 @@ defmodule RickMortyPetWeb.CharacterControllerTest do
 
     test "renders character when data is valid", %{conn: conn, character: %Character{id: id} = character} do
       conn = put(conn, Routes.character_path(conn, :update, character), character: @update_attrs)
-      assert %{"id" => ^id} = json_response(conn, 200)["data"]
+      assert %{"id" => ^id} = json_response(conn, 200)
 
       conn = get(conn, Routes.character_path(conn, :show, id))
 
@@ -75,7 +75,7 @@ defmodule RickMortyPetWeb.CharacterControllerTest do
                "species" => "some updated species",
                "status" => "some updated status",
                "type" => "some updated type"
-             } = json_response(conn, 200)["data"]
+             } = json_response(conn, 200)
     end
 
     test "renders errors when data is invalid", %{conn: conn, character: character} do

@@ -6,9 +6,20 @@ defmodule RickMortyPet.RickMortyTest do
   describe "characters" do
     alias RickMortyPet.RickMorty.Character
 
-    @valid_attrs %{gender: "some gender", name: "some name", species: "some species", status: "some status", type: "some type"}
-    @update_attrs %{gender: "some updated gender", name: "some updated name", species: "some updated species", status: "some updated status", type: "some updated type"}
-    @invalid_attrs %{gender: nil, name: nil, species: nil, status: nil, type: nil}
+    @valid_attrs %{gender: "some gender",
+                  name: "some name",
+                  species: "some species",
+                  status: "some status",
+                  type: "some type"}
+    @update_attrs %{gender: "some updated gender",
+                    name: "some updated name",
+                    species: "some updated species",
+                    status: "some updated status",
+                    type: "some updated type"}
+    @invalid_attrs %{gender: nil,
+                    name: nil,
+                    species: nil,
+                    status: nil}
 
     def character_fixture(attrs \\ %{}) do
       {:ok, character} =
