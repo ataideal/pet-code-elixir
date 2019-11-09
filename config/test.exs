@@ -11,8 +11,8 @@ config :logger, level: :warn
 
 # Configure your database
 config :rick_morty_pet, RickMortyPet.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "d0zero",
+  password: "",
   database: "rick_morty_pet_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

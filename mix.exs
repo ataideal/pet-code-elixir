@@ -40,7 +40,9 @@ defmodule RickMortyPet.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:arc, "~> 0.11.0"}, # File Upload Library https://github.com/stavro/arc
+      {:arc_ecto, "~> 0.11.1"}
     ]
   end
 

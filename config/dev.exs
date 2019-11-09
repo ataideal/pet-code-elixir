@@ -49,8 +49,12 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
 config :rick_morty_pet, RickMortyPet.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "d0zero",
+  password: "",
   database: "rick_morty_pet_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Configs for Arc Library
+config :arc,
+  storage: Arc.Storage.Local
