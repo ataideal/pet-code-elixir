@@ -95,12 +95,13 @@ defmodule RickMortyPet.RickMorty do
   end
 
   def insert_or_update_location_by_name(location_params) do
-    case find_location_by_name(location_params[:name]) do
-        %Location{} = location -> update_location(location,%{type: location_params[:type],
-                                     dimension: location_params[:dimension]})
-        nil -> create_location(%{name: location_params[:name],
-                                 type: location_params[:type],
-                                 dimension: location_params[:dimension]})
+    case find_location_by_name(location_params["name"]) do
+        %Location{} = location -> update_location(location,%{type: location_params["type"],
+                                     dimension: location_params["dimension"]})
+        nil -> create_location(%{name: location_params["name"],
+                                 type: location_params["type"],
+                                 dimension: location_params["dimension"]})
     end
   end
+
 end
