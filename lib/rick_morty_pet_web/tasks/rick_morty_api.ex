@@ -30,9 +30,9 @@ defmodule RickMortyPet.RickMortyAPI do
     Enum.each(characters, fn character ->
       RickMorty.insert_or_update_character_by_name(character)
     end)
-    # if(current_page + 1 <= max_pages) do
-    #   get_all_characters(current_page + 1)
-    # end
+    if(current_page + 1 <= max_pages) do
+      get_all_characters(current_page + 1)
+    end
   end
 
 end
