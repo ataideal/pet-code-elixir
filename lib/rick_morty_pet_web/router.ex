@@ -8,5 +8,6 @@ defmodule RickMortyPetWeb.Router do
   scope "/api", RickMortyPetWeb do
     pipe_through :api
     resources "/characters", CharacterController, except: [:new, :edit]
+    resources "/locations", LocationController, except: [:new, :edit]
   end
 end

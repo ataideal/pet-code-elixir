@@ -42,7 +42,8 @@ defmodule RickMortyPet.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:arc, "~> 0.11.0"}, # File Upload Library https://github.com/stavro/arc
-      {:arc_ecto, "~> 0.11.1"}
+      {:arc_ecto, "~> 0.11.1"},
+      {:httpoison, "~> 1.6"} # Request Library https://github.com/edgurgel/httpoison
     ]
   end
 
