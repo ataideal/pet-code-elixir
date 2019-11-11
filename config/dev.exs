@@ -39,6 +39,8 @@ config :rick_morty_pet, RickMortyPetWeb.Endpoint,
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
+config :logger,
+  level: :debug
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
@@ -57,4 +59,13 @@ config :rick_morty_pet, RickMortyPet.Repo,
 
 # Configs for Arc Library
 config :arc,
-  storage: Arc.Storage.Local
+  storage: Arc.Storage.Local,
+  url: "localhost:4000"
+
+config :rick_morty_pet, RickMortyPet.Scheduler,
+  jobs: [
+    feed_database: [
+      schedule: "0 */8 * * *",
+      task: {RickMortyPet.RickMortyAPI, :import_data_from_api,[]},
+    ]
+  ]

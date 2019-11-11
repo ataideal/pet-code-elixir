@@ -6,9 +6,14 @@ defmodule RickMortyPetWeb.CharacterController do
 
   action_fallback RickMortyPetWeb.FallbackController
 
-  def index(conn, _params) do
-    characters = RickMorty.list_characters()
+  def index(conn, params) do
+    characters = RickMorty.list_characters(params)
     render(conn, "index.json", characters: characters)
+  end
+
+  def ranking(conn, _params) do
+    ranking = RickMorty.generate_dopplegangers_ranking
+    json(conn,ranking)
   end
 
   def create(conn, %{"character" => character_params}) do
@@ -16,7 +21,7 @@ defmodule RickMortyPetWeb.CharacterController do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.character_path(conn, :show, character))
-      |> render("show.json", character: character)
+      |> render("show.json", character: RickMorty.preload_character_assoc(character))
     end
   end
 

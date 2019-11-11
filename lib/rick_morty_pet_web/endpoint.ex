@@ -17,7 +17,7 @@ defmodule RickMortyPetWeb.Endpoint do
 
   plug Plug.Static,
     at: "/uploads",
-    from: Path.expand("./uploads"),
+    from: "./uploads",
     gzip: false
 
   # Code reloading can be explicitly enabled under the

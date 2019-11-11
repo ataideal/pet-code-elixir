@@ -11,11 +11,11 @@ defmodule RickMortyPet.Application do
       # Start the Ecto repository
       RickMortyPet.Repo,
       # Start the endpoint when the application starts
-      RickMortyPetWeb.Endpoint
+      RickMortyPetWeb.Endpoint,
       # Starts a worker by calling: RickMortyPet.Worker.start_link(arg)
       # {RickMortyPet.Worker, arg},
+      RickMortyPet.Scheduler,
     ]
-
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: RickMortyPet.Supervisor]
