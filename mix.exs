@@ -43,7 +43,9 @@ defmodule RickMortyPet.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:arc, "~> 0.11.0"}, # File Upload Library https://github.com/stavro/arc
       {:arc_ecto, "~> 0.11.1"},
-      {:httpoison, "~> 1.6"} # Request Library https://github.com/edgurgel/httpoison
+      {:httpoison, "~> 1.6"}, # Request Library https://github.com/edgurgel/httpoison
+      {:quantum, "~> 2.3"},# Cron-like job scheduler for Elixir.
+      {:timex, "~> 3.0"} # Cron-like job scheduler for Elixir.
     ]
   end
 

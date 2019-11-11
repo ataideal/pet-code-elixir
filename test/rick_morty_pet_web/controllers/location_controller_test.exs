@@ -28,14 +28,14 @@ defmodule RickMortyPetWeb.LocationControllerTest do
   describe "index" do
     test "lists all locations", %{conn: conn} do
       conn = get(conn, Routes.location_path(conn, :index))
-      assert json_response(conn, 200)["data"] == []
+      assert json_response(conn, 200) == []
     end
   end
 
   describe "create location" do
     test "renders location when data is valid", %{conn: conn} do
       conn = post(conn, Routes.location_path(conn, :create), location: @create_attrs)
-      assert %{"id" => id} = json_response(conn, 201)["data"]
+      assert %{"id" => id} = json_response(conn, 201)
 
       conn = get(conn, Routes.location_path(conn, :show, id))
 
@@ -44,7 +44,7 @@ defmodule RickMortyPetWeb.LocationControllerTest do
                "dimension" => "some dimension",
                "name" => "some name",
                "type" => "some type"
-             } = json_response(conn, 200)["data"]
+             } = json_response(conn, 200)
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -58,7 +58,7 @@ defmodule RickMortyPetWeb.LocationControllerTest do
 
     test "renders location when data is valid", %{conn: conn, location: %Location{id: id} = location} do
       conn = put(conn, Routes.location_path(conn, :update, location), location: @update_attrs)
-      assert %{"id" => ^id} = json_response(conn, 200)["data"]
+      assert %{"id" => ^id} = json_response(conn, 200)
 
       conn = get(conn, Routes.location_path(conn, :show, id))
 
@@ -67,7 +67,7 @@ defmodule RickMortyPetWeb.LocationControllerTest do
                "dimension" => "some updated dimension",
                "name" => "some updated name",
                "type" => "some updated type"
-             } = json_response(conn, 200)["data"]
+             } = json_response(conn, 200)
     end
 
     test "renders errors when data is invalid", %{conn: conn, location: location} do

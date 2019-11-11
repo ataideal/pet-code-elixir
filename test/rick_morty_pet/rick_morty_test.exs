@@ -28,6 +28,7 @@ defmodule RickMortyPet.RickMortyTest do
         |> RickMorty.create_character()
 
       character
+      |> Repo.preload(:origin)
     end
 
     test "list_characters/0 returns all characters" do

@@ -32,7 +32,7 @@ defmodule RickMortyPet.Picture do
 
   # Override the storage directory:
   def storage_dir(version, {file, scope}) do
-    "uploads/character/picture/#{scope.id}"
+    "uploads/"
   end
 
   # Provide a default URL if there hasn't been a file uploaded
